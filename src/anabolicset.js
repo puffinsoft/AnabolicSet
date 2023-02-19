@@ -1,4 +1,4 @@
-/*! AnabolicSet v1.0.0 | (c) ColonelParrot and other contributors | MIT License */
+/*! AnabolicSet v1.1.0 | (c) ColonelParrot and other contributors | MIT License */
 
 ; (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
