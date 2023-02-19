@@ -2,6 +2,21 @@
     <img src="docs/images/logo.png">
 </p>
 
+<p align="center">
+    <a href="https://GitHub.com/ColonelParrot/anabolicset/stargazers/"><img src="https://img.shields.io/github/stars/ColonelParrot/anabolicset.svg?style=social&label=Star"></a>
+    <br />
+    <br />
+    <a href="https://www.jsdelivr.com/package/gh/ColonelParrot/anabolicset"><img src="https://data.jsdelivr.com/v1/package/gh/ColonelParrot/anabolicset/badge"></a>
+    <a href="https://npmjs.com/package/anabolicset"><img src="https://badgen.net/npm/dw/anabolicset"></a>
+    <br />
+    <a href="https://github.com/ColonelParrot/anabolicset/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ColonelParrot/anabolicset.svg"></a>
+    <a href="https://GitHub.com/ColonelParrot/anabolicset/releases/"><img src="https://img.shields.io/github/release/ColonelParrot/anabolicset.svg"></a>
+    <a href="https://npmjs.com/package/anabolicset"><img src="https://badgen.net/npm/v/anabolicset"></a>
+</p>
+
+<p align="center">
+  <a href="https://nodei.co/npm/anabolicset/"><img src="https://nodei.co/npm/anabolicset.png"></a>
+</p>
 
 <i align="center">You'll never use [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) again...</i>
 
