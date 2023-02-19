@@ -58,9 +58,15 @@ npm:
 ```
 npm i anabolicset
 ```
+```javascript
+import { AnabolicSet } from 'anabolicset/src/anabolicset'
+```
 
 cdn:
 ```html
 <script src="https://cdn.jsdelivr.net/gh/ColonelParrot/AnabolicSet@latest/src/anabolicset.min.js"></script>
+```
+```javascript
+const set = new AnabolicSet()
 ```
 
