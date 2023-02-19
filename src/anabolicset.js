@@ -7,7 +7,7 @@
 }(this, (function () {
     'use strict';
     class AnabolicSet {
-        
+
         /**
          * Initializes the AnabolicSet
          * @param {*} values the initial values in the set
@@ -41,12 +41,8 @@
                 this.clear()
                 if (Array.isArray(values)) {
                     setArrayValues(values)
-                } else if (typeof values === 'object') {
-                    setArrayValues(Object.values(values))
-                } else if (typeof values === 'number' || typeof values === 'string') {
-                    setArrayValues([values])
                 } else {
-                    throw new Error('Unsupported value type')
+                    setArrayValues([values])
                 }
             } else {
                 this.clear()
@@ -59,19 +55,19 @@
          */
         add(value) {
             if (value !== undefined) {
-                if (Array.isArray(value)) {
-                    value.forEach(val => {
-                        this.values[this.serializer(val)] = val
-                    })
-                } else if (typeof value === 'object') {
-                    Object.values(value).forEach(val => {
-                        this.values[this.serializer(val)] = val
-                    })
-                } else if (typeof value === 'number' || typeof value == 'string') {
+                this.values[this.serializer(value)] = value
+            }
+        }
+
+        /**
+         * Adds multiple rest parameters
+         * @param  {...any} values rest parameters
+         */
+        addAll(...values){
+            if(values !== undefined){
+                values.forEach(value => {
                     this.values[this.serializer(value)] = value
-                } else {
-                    throw new Error('Unsupported value type')
-                }
+                })
             }
         }
 
@@ -88,19 +84,7 @@
          */
         delete(value) {
             if (value !== undefined) {
-                if (Array.isArray(value)) {
-                    value.forEach(val => {
-                        delete this.values[this.serializer(val)]
-                    })
-                } else if (typeof value === 'object') {
-                    Object.values(value).forEach(val => {
-                        delete this.values[this.serializer(val)]
-                    })
-                } else if (typeof value === 'number' || typeof value == 'string') {
-                    delete this.values[this.serializer(value)]
-                } else {
-                    throw new Error('Unsupported value type')
-                }
+                delete this.values[this.serializer(value)]
             }
         }
 
@@ -230,7 +214,7 @@
          * @returns new AnabolicSet with identical items & serializer
          */
         clone() {
-            return new AnabolicSet({...this.values}, this.serializer)
+            return new AnabolicSet({ ...this.values }, this.serializer)
         }
     }
     return AnabolicSet

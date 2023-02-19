@@ -42,7 +42,7 @@ set1.getValues() // [{id: 1}, {id: 2}]
 const set1 = new AnabolicSet([1, 2, 3, 4, 5])
 const set2 = new AnabolicSet([2, 4])
 
-set1.add([5, 6])
+set1.addAll(...[5, 6])
 set1.getValues() // [1, 2, 3, 4, 5, 6]
 
 set2.isSubsetOf(set1) // true
