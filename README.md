@@ -6,9 +6,6 @@
     <a href="https://GitHub.com/ColonelParrot/anabolicset/stargazers/"><img src="https://img.shields.io/github/stars/ColonelParrot/anabolicset.svg?style=social&label=Star"></a>
     <br />
     <br />
-    <a href="https://www.jsdelivr.com/package/gh/ColonelParrot/anabolicset"><img src="https://data.jsdelivr.com/v1/package/gh/ColonelParrot/anabolicset/badge"></a>
-    <a href="https://npmjs.com/package/anabolicset"><img src="https://badgen.net/npm/dw/anabolicset"></a>
-    <br />
     <a href="https://github.com/ColonelParrot/anabolicset/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ColonelParrot/anabolicset.svg"></a>
     <a href="https://GitHub.com/ColonelParrot/anabolicset/releases/"><img src="https://img.shields.io/github/release/ColonelParrot/anabolicset.svg"></a>
     <a href="https://npmjs.com/package/anabolicset"><img src="https://badgen.net/npm/v/anabolicset"></a>
@@ -19,6 +16,15 @@
 </p>
 
 <i align="center">You'll never use [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) again...</i>
+
+AnabolicSet is built around the optional ability to customize item comparisons with a custom serializer. The uniqueness is guaranteed for the return value of the serializer.
+
+This allows you to do things like:
+
+```javascript
+const set1 = new AnabolicSet([{ id: 1 }, { id: 2 }, { id: 2 }], (obj) => obj.id) // <-- serializer
+set1.getValues() // [{id: 1}, {id: 2}]
+```
 
 ## Featuring...
 
@@ -32,11 +38,6 @@
   - all native [`Set` methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#instance_methods)
 - extensive & broad browser support
 - blazing fast 💨 ([up to **70%** faster than native Set](https://jsbench.me/zrlebmbyq1/1))
-
-```javascript
-const set1 = new AnabolicSet([{ id: 1 }, { id: 2 }, { id: 2 }], (obj) => obj.id)
-set1.getValues() // [{id: 1}, {id: 2}]
-```
 
 ```javascript
 const set1 = new AnabolicSet([1, 2, 3, 4, 5])
@@ -70,4 +71,3 @@ cdn:
 ```javascript
 const set = new AnabolicSet()
 ```
-
