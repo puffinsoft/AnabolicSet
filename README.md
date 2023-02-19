@@ -31,6 +31,7 @@
   - `isSupersetOf`
   - all native [`Set` methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#instance_methods)
 - extensive & broad browser support
+- blazing fast 💨 ([up to **70%** faster than native Set](https://jsbench.me/zrlebmbyq1/1))
 
 ```javascript
 const set1 = new AnabolicSet([{ id: 1 }, { id: 2 }, { id: 2 }], (obj) => obj.id)
