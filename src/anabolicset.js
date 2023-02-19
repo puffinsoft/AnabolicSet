@@ -48,6 +48,8 @@
                 } else {
                     throw new Error('Unsupported value type')
                 }
+            } else {
+                this.clear()
             }
         }
 
@@ -109,6 +111,7 @@
         entries() {
             return Object.values(this.values).reduce((acc, curr) => {
                 acc.push([curr, curr])
+                return acc;
             }, [])
         }
 
@@ -227,7 +230,7 @@
          * @returns new AnabolicSet with identical items & serializer
          */
         clone() {
-            return new AnabolicSet(this.values, this.serializer)
+            return new AnabolicSet({...this.values}, this.serializer)
         }
     }
     return AnabolicSet
