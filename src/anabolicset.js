@@ -1,4 +1,4 @@
-/*! AnabolicSet v1.2.0 | (c) ColonelParrot and other contributors | MIT License */
+/*! AnabolicSet v1.3.0 | (c) ColonelParrot and other contributors | MIT License */
 
 ; (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -16,9 +16,9 @@
          */
         constructor(values, serializer, options) {
             if (serializer !== undefined) {
-                this.serializer = serializer;
+                this.setSerializer(serializer)
             } else {
-                this.serializer = (a) => a;
+                this.setSerializer((a) => a)
             }
 
             this.setValues(values)
@@ -32,7 +32,7 @@
          */
         setValues(values) {
             const setArrayValues = (arr) => {
-                this.values = arr.reduce((acc, curr) => {
+                this._values = arr.reduce((acc, curr) => {
                     acc[this.serializer(curr)] = curr
                     return acc
                 }, {})
@@ -55,7 +55,7 @@
          */
         add(value) {
             if (value !== undefined) {
-                this.values[this.serializer(value)] = value
+                this._values[this.serializer(value)] = value
             }
         }
 
@@ -63,10 +63,10 @@
          * Adds multiple rest parameters
          * @param  {...any} values rest parameters
          */
-        addAll(...values){
-            if(values !== undefined){
+        addAll(...values) {
+            if (values !== undefined) {
                 values.forEach(value => {
-                    this.values[this.serializer(value)] = value
+                    this._values[this.serializer(value)] = value
                 })
             }
         }
@@ -75,7 +75,7 @@
          * Clears all items in the AnabolicSet
          */
         clear() {
-            this.values = {}
+            this._values = {}
         }
 
         /**
@@ -84,7 +84,7 @@
          */
         delete(value) {
             if (value !== undefined) {
-                delete this.values[this.serializer(value)]
+                delete this._values[this.serializer(value)]
             }
         }
 
@@ -93,7 +93,7 @@
          * @returns an array of the items in the Set in groups of 2
          */
         entries() {
-            return Object.values(this.values).reduce((acc, curr) => {
+            return Object.values(this._values).reduce((acc, curr) => {
                 acc.push([curr, curr])
                 return acc;
             }, [])
@@ -104,7 +104,7 @@
          * @param {*} callback callback function
          */
         forEach(callback) {
-            Object.values(this.values).forEach(callback)
+            Object.values(this._values).forEach(callback)
         }
 
         /**
@@ -113,15 +113,15 @@
          * @returns `true` if contains, `false` otherwise
          */
         has(value) {
-            return this.values.hasOwnProperty(this.serializer(value))
+            return this._values.hasOwnProperty(this.serializer(value))
         }
 
         /**
          * Get items in AnabolicSet as an array
          * @returns an array of items
          */
-        getValues() {
-            return Object.values(this.values)
+        values() {
+            return Object.values(this._values)
         }
 
         /**
@@ -143,23 +143,17 @@
         /**
          * Applies union with another set
          * @param {*} set other set
-         * @param {*} conflictHandler function with 2 parameters called if a conflict occurs (possibly from different serializers producing same key)
          * @returns new AnabolicSet with union
          */
-        union(set, conflictHandler) {
-            conflictHandler = conflictHandler || ((a, b) => a);
+        union(set) {
             if (set !== undefined) {
-                const values = { ...this.values }
+                const values = { ...this._values }
                 const setValues = { ...set.values }
                 Object.values(setValues).forEach(val => {
                     const key = this.serializer(val)
-                    if (values.hasOwnProperty(key)) {
-                        values[key] = conflictHandler(values[key], setValues[key])
-                    } else {
-                        values[key] = val;
-                    }
+                    values[key] = val;
                 })
-                return new AnabolicSet(values, this.serializer)
+                return new AnabolicSet(Object.values(values), this.serializer)
             }
         }
 
@@ -169,9 +163,9 @@
          * @returns array of intersections
          */
         intersect(set) {
-            return Object.keys(this.values).reduce((acc, curr) => {
+            return Object.keys(this._values).reduce((acc, curr) => {
                 if (set.values.hasOwnProperty(curr)) {
-                    acc.push(this.values[curr])
+                    acc.push(this._values[curr])
                 }
                 return acc
             }, [])
@@ -183,9 +177,9 @@
          * @returns array of complements
          */
         complement(set) {
-            return Object.keys(this.values).reduce((acc, curr) => {
+            return Object.keys(this._values).reduce((acc, curr) => {
                 if (!set.values.hasOwnProperty(curr)) {
-                    acc.push(this.values[curr])
+                    acc.push(this._values[curr])
                 }
                 return acc
             }, [])
@@ -214,7 +208,7 @@
          * @returns new AnabolicSet with identical items & serializer
          */
         clone() {
-            return new AnabolicSet({ ...this.values }, this.serializer)
+            return new AnabolicSet({ ...this._values }, this.serializer)
         }
     }
     return AnabolicSet
