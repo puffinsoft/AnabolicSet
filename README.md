@@ -37,7 +37,7 @@ set1.values() // [{id: 1}, {id: 2}]
   - [`isSupersetOf`](https://github.com/ColonelParrot/AnabolicSet/wiki#--issupersetofset)
   - all native [`Set` methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#instance_methods)
 - extensive & broad browser support
-- blazing fast 💨 ([up to **70%** faster than native Set](https://jsbench.me/zrlebmbyq1/1))
+- blazing fast 💨 ([up to **70%** faster than native Set](https://jsbench.me/zrlebmbyq1/1) for certain operations)
 
 ```javascript
 const set1 = new AnabolicSet([1, 2, 3, 4, 5])
