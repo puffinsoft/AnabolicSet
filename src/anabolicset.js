@@ -1,4 +1,4 @@
-/*! AnabolicSet v1.4.0 | (c) ColonelParrot and other contributors | MIT License */
+/*! AnabolicSet v1.4.1 | (c) ColonelParrot and other contributors | MIT License */
 
 ; (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -210,6 +210,10 @@
         clone() {
             return new AnabolicSet({ ...this._values }, this._serializer)
         }
+    }
+
+    if(typeof module !== 'undefined'){
+        module.exports = { AnabolicSet }
     }
     return AnabolicSet
 })));
