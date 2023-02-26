@@ -30,7 +30,7 @@ set1.values() // [{id: 1}, {id: 2}]
 
 - custom comparing with custom serializer (similar to Java's [`HashSet`](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html) and `hashCode`)
 - improved functionality based upon native [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-  - [`union`](https://github.com/ColonelParrot/AnabolicSet/wiki#--unionset---anabolicset)
+  - [`union`](https://github.com/ColonelParrot/AnabolicSet/wiki#--unionset)
   - [`intersect`](https://github.com/ColonelParrot/AnabolicSet/wiki#--intersectset)
   - [`complement`](https://github.com/ColonelParrot/AnabolicSet/wiki#--complementset)
   - [`isSubsetOf`](https://github.com/ColonelParrot/AnabolicSet/wiki#--issubsetofset)
