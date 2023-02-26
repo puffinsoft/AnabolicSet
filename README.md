@@ -58,7 +58,7 @@ set1.union(set2) // AnabolicSet [1, 2, 3, 4, 5, 6, 7]
 **npm**:
 ```javascript
 $ npm i anabolicset
-import { AnabolicSet } from 'anabolicset/src/anabolicset'
+import AnabolicSet from 'anabolicset'
 ```
 
 **cdn**:

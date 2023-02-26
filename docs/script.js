@@ -1,6 +1,6 @@
 (function () {
     const clipboardData = {
-        npm: "npm i anabolicset\nimport { AnabolicSet } from 'anabolicset/src/anabolicset'",
+        npm: "npm i anabolicset\nimport AnabolicSet from 'anabolicset'",
         html: `<script src="https://cdn.jsdelivr.net/gh/ColonelParrot/AnabolicSet@latest/src/anabolicset.min.js"></script>`
     }
 
