@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter");
+
+:root {
+  --theme-dark-light: #313338;
+  --font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+a {
+  color: #0969da;
+}
+
+#hero {
+  padding: 80px 20px;
+  padding-top: 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero_bg {
+  background: var(--theme-dark-light);
+  height: 300px;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: skewY(-6deg) scale(2.6) translate3d(-50%, 22%, 0);
+  transform: skewY(-6deg) scale(2.6) translate3d(-50%, 22%, 0);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  width: 100%;
+  z-index: -1;
+  box-sizing: border-box;
+}
+
+#hero #logo {
+  font-size: 52px;
+  background: -webkit-linear-gradient(300deg, #1e82fa 20%, #74b5fb 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  line-height: 64px !important;
+}
+
+#hero h1 {
+  font-family: "Inter var", sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+  margin: auto;
+  max-width: 80%;
+  color: white;
+}
+
+#terminal {
+  width: 60%;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 30px;
+  background: black !important;
+  border-radius: 3px;
+  text-align: left;
+  box-shadow: 0 0 3px black;
+}
+
+#terminal .header {
+  line-height: 0;
+  padding: 12px;
+}
+
+#terminal pre::-webkit-scrollbar {
+  height: 14px;
+}
+#terminal pre::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.view-on .view-on-option {
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-family: "Inter";
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.view-on .view-on-option svg {
+  margin-right: 8px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  margin: 0 30px;
+}
+
+#content h2 {
+  font-family: "Inter var", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+#content .row .text-content h2 {
+  margin-bottom: 0;
+}
+
+#content .row .text-content p {
+  color: #57606a;
+  font-family: "Inter var";
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#installation {
+  font-family: "Inter var";
+  background-color: var(--theme-dark-light);
+  color: white;
+  padding: 50px 20px;
+  margin-top: 100px;
+}
+
+#installation .installation-options {
+  display: flex;
+  font-size: 20px;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#installation .installation-option {
+  user-select: none;
+  cursor: pointer;
+}
+
+#installation .installation-option.active-option {
+  text-decoration: underline;
+}
+
+#installation .option {
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#installation .terminal {
+  font-size: 14px;
+  line-height: 34px;
+  background-color: rgb(0, 0, 0, 0.5);
+  border: 1px solid rgba(166, 175, 194, 0.25);
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-family: var(--font-mono);
+  position: relative;
+  overflow: auto;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.terminal pre {
+  overflow: auto;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.terminal code {
+  background-color: transparent;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.terminal pre::-webkit-scrollbar {
+  height: 14px;
+}
+
+.terminal pre::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+#installation .terminal:hover {
+  border-color: rgba(166, 175, 194, 0.8);
+}
+
+#installation .terminal .terminal-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+#installation .terminal:hover .terminal-icon {
+  opacity: 1;
+}
+
+#installation .terminal .terminal-copied {
+  display: none;
+}
+
+#further-steps {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Inter var";
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
+#further-steps a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 460px) {
+  #hero #logo {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  #hero h1 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #terminal{
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1132px) {
+  #content .row img{
+    margin-right: 0 !important;
+  }
+}
