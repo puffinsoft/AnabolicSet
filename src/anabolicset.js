@@ -1,4 +1,4 @@
-/*! AnabolicSet v1.3.0 | (c) ColonelParrot and other contributors | MIT License */
+/*! AnabolicSet v1.4.0 | (c) ColonelParrot and other contributors | MIT License */
 
 ; (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -33,7 +33,7 @@
         setValues(values) {
             const setArrayValues = (arr) => {
                 this._values = arr.reduce((acc, curr) => {
-                    acc[this.serializer(curr)] = curr
+                    acc[this._serializer(curr)] = curr
                     return acc
                 }, {})
             }
@@ -55,7 +55,7 @@
          */
         add(value) {
             if (value !== undefined) {
-                this._values[this.serializer(value)] = value
+                this._values[this._serializer(value)] = value
             }
         }
 
@@ -66,7 +66,7 @@
         addAll(...values) {
             if (values !== undefined) {
                 values.forEach(value => {
-                    this._values[this.serializer(value)] = value
+                    this._values[this._serializer(value)] = value
                 })
             }
         }
@@ -84,7 +84,7 @@
          */
         delete(value) {
             if (value !== undefined) {
-                delete this._values[this.serializer(value)]
+                delete this._values[this._serializer(value)]
             }
         }
 
@@ -113,7 +113,7 @@
          * @returns `true` if contains, `false` otherwise
          */
         has(value) {
-            return this._values.hasOwnProperty(this.serializer(value))
+            return this._values.hasOwnProperty(this._serializer(value))
         }
 
         /**
@@ -137,7 +137,7 @@
          * @param {*} serializer serializer function
          */
         setSerializer(serializer) {
-            this.serializer = serializer
+            this._serializer = serializer
         }
 
         /**
@@ -148,12 +148,12 @@
         union(set) {
             if (set !== undefined) {
                 const values = { ...this._values }
-                const setValues = { ...set.values }
+                const setValues = { ...set._values }
                 Object.values(setValues).forEach(val => {
-                    const key = this.serializer(val)
+                    const key = this._serializer(val)
                     values[key] = val;
                 })
-                return new AnabolicSet(Object.values(values), this.serializer)
+                return new AnabolicSet(Object.values(values), this._serializer)
             }
         }
 
@@ -163,9 +163,9 @@
          * @returns array of intersections
          */
         intersect(set) {
-            return Object.keys(this._values).reduce((acc, curr) => {
-                if (set.values.hasOwnProperty(curr)) {
-                    acc.push(this._values[curr])
+            return this.values().reduce((acc, curr) => {
+                if (set._values.hasOwnProperty(set._serializer(curr))) {
+                    acc.push(curr)
                 }
                 return acc
             }, [])
@@ -177,9 +177,9 @@
          * @returns array of complements
          */
         complement(set) {
-            return Object.keys(this._values).reduce((acc, curr) => {
-                if (!set.values.hasOwnProperty(curr)) {
-                    acc.push(this._values[curr])
+            return this.values().reduce((acc, curr) => {
+                if (!set._values.hasOwnProperty(set._serializer(curr))) {
+                    acc.push(curr)
                 }
                 return acc
             }, [])
@@ -208,7 +208,7 @@
          * @returns new AnabolicSet with identical items & serializer
          */
         clone() {
-            return new AnabolicSet({ ...this._values }, this.serializer)
+            return new AnabolicSet({ ...this._values }, this._serializer)
         }
     }
     return AnabolicSet
