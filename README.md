@@ -1,6 +1,10 @@
 <p align="center">
+    <img src="docs/images/rocket.png" height="100">
+    <br/>
     <img src="docs/images/logo.png">
 </p>
+
+---
 
 <p align="center">
     <a href="https://GitHub.com/ColonelParrot/anabolicset/stargazers/"><img src="https://img.shields.io/github/stars/ColonelParrot/anabolicset.svg?style=social&label=Star"></a>
