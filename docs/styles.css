@@ -241,13 +241,27 @@ a {
 }
 
 @media only screen and (max-width: 800px) {
-  #terminal{
+  #terminal {
     width: 80%;
   }
 }
 
 @media only screen and (max-width: 1132px) {
-  #content .row img{
+  #content .row img {
     margin-right: 0 !important;
   }
+}
+
+#demo {
+  text-align: center;
+}
+
+#demo iframe {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #15181E;
 }
